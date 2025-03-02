@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout ::base(~{::title}, ~{::body})}">
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>家系図情報の編集</title>
+
+	<style>
+		body {
+			text-align: center;
+		}
+
+		table {
+			margin: 30px auto;
+		}
+
+		form {
+			margin: 0 auto;
+		}
+
+		form>div {
+			text-align: left;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>家系図情報の編集</h1>
+	<form th:action="@{/family_trees/update}" th:object="${familyTreeForm}" th:method="post">
+		<p>Id: <input type="number" th:field="*{familyTreeId}" readonly /></p>
+		<p>
+			<label th:for="*{title}">家系図タイトル:</label>
+			<input type="text" th:field="*{title}" required>
+		</p>
+		<p>
+			<label th:for="*{description}">説明文</label><br>
+			<input type="text" th:field="*{description}"><br>
+		</p>
+		<br>
+
+		<input type="submit" value="更新する">
+	</form>
+
+	<a href="/">メニュー一覧へ</a>
+
+</body>
+
+</html>

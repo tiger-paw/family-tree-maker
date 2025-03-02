@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+
+/*
+header
+*/
+
+/*header {
+	width: 100%;
+	height: 50px;
+	background-color: #333;
+	color: #ccc;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 15px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	
+}
+*/
+
+
+
+/* login */
+.section {
+	width: 80%;
+	margin: 0 auto;
+}
+
+/*
+main-content
+*/
+
+.main-content {
+	text-align: center;
+	
+}
+
+h1 {
+	background-color: #eee;
+	max-width: 50%;
+	border-radius: 5px;
+	margin: 15px auto;
+}
+
+.menu-section, .content-section {
+	padding: 30px;
+	margin: 30px 0;
+	max-width: 70%;
+	margin: 0 auto;
+}
+
+.button {
+	display: inline-block;
+	color: #fff;
+	font-weight: bold;
+	background-color: #333;
+	text-align: center;
+	padding: 15px 60px;
+	text-decoration: none;
+	border-radius: 5px;
+	box-shadow: 5px 5px 0 #bbb;
+	transition: box-shadow .25s;
+	border: none;
+}
+
+/* table */
+.list-table {
+	margin: 0 auto;
+}
+
+.table-form {
+	margin:0 auto;
+	
+}
+
+.table-form > th {
+	text-align: left;
+}
+
+.talbe-form > tr {
+	padding: 5px;
+}
+
+.form-button {
+	padding: 20px 0;
+}
+
+.button.submit-button {
+	background-color: #92d3ca;
+}
+
+
+/*
+footer
+*/
+
+.bottom-section {
+	margin: 20px 0;
+}
+
+.footer {
+	width: 100%;
+	padding: 30px;
+	margin: 0 auto;
+	justify-content: center;
+	text-align: center;
+	color: #fff;
+	background-color: #333;
+	margin-top: 30px;
+	
+}
+
+
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout ::base(~{::title}, ~{::body})}">
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>人物の更新結果</title>
+
+	<style>
+		body {
+			text-align: center;
+		}
+
+		table {
+			margin: 30px auto;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>人物の更新結果</h1>
+	<p>人物情報を更新しました</p>
+	<ul th:object="${person}">
+
+		<li>人物ID</li>
+		<li th:text="*{personId}"></li>
+
+		<li>氏名</li>
+		<li th:text="*{lastName} + '_' + *{firstName}"></li>
+
+		<li>氏名（かな）</li>
+		<li th:text="*{lastNameKana} + '_' + *{firstNameKana}"></li>
+
+		<li>生年月日</li>
+		<li th:text="*{birthDate}"></li>
+
+		<li>性別</th>
+		<li th:text="*{gender}"></li>
+
+		<li>画像</li>
+		<li th:text="*{personImage}"></li>
+
+		<li>説明文</li>
+		<li th:text="*{description}"></li>
+
+		<li>電話番号</li>
+		<li th:text="*{phoneNumber}"></li>
+
+		<li>住所</li>
+		<li th:text="*{address}"></li>
+	</ul>
+
+	<p><a th:href="@{/family_trees/{id}(id=${person.familyTreeId})}">家系図詳細へ</a></p>
+	<p><a href="/">メニュー一覧へ</a></p>
+
+</body>
+
+</html>

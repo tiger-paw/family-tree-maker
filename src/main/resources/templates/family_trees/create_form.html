@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+ th:replace="~{layout ::base(~{::title}, ~{::body})}">
+
+<head>
+	<title>家系図作成</title>
+</head>
+
+<body>
+	<!-- Spring Securityからユーザー名を取得して表示-->
+	<!-- <p sec:authentication="name"></p> -->
+	
+	<h1>家系図の新規作成</h1>
+	<form th:action="@{/family_trees/create}" method="post">
+		<label for="title">家系図タイトル:</label><br>
+		<input type="text" id="title" name="title" required><br>
+		<label for="description">説明文</label><br>
+		<input type="text" id="description" name="description"><br>
+		<br>
+		<input type="submit" value="作成">
+	</form>
+</body>
+
+</html>

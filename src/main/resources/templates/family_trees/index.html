@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout ::base(~{::title}, ~{::body})}">
+
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>家系図一覧</title>
+
+	<!--	<style>
+		body {
+			text-align: center;
+		}
+
+		table {
+			margin: 30px auto;
+		}
+	</style>-->
+</head>
+
+<body>
+	<h1>家系図一覧</h1>
+	<di class="content-section">
+		<div th:if="${message}">
+			<p th:text="${message}" style="color: blue;">
+				完了メッセージ
+			</p>
+		</div>
+		<a href="/family_trees/create_form">家系図作成</a>
+		<table class="table table-striped list-table " border="1">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>タイトル</th>
+					<th>説明文</th>
+					<th>詳細</th>
+					<th>編集</th>
+					<th>削除</th>
+				</tr>
+			</thead>
+			<p>ログイン中のuserId = [[${userId}]]</p>
+			<tbody>
+				<tr th:each="familyTree : ${familyTreeList}">
+					<td th:text="${familyTree.familyTreeId}"></td>
+					<td th:text="${familyTree.title}"></td>
+					<td th:text="${familyTree.description}"></td>
+					<td>
+						<a th:href="@{/family_trees/{familyTreeId}(familyTreeId=${familyTree.familyTreeId})}">詳細</a>
+					</td>
+					<td>
+						<a
+							th:href="@{/family_trees/{familyTreeId}/edit(familyTreeId=${familyTree.familyTreeId})}">編集</a>
+					</td>
+					<td>
+						<a
+							th:href="@{/family_trees/{familyTreeId}/delete_confirm_from_index(familyTreeId=${familyTree.familyTreeId})}">削除</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="bottom-section">
+			<a href="/">メニュー一覧へ</a>
+		</div>
+		</div>
+</body>
+
+</html>

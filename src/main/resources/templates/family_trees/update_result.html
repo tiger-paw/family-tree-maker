@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout ::base(~{::title}, ~{::body})}">
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>家系図情報の更新結果</title>
+
+	<style>
+		body {
+			text-align: center;
+		}
+
+		table {
+			margin: 30px auto;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>家系図の更新結果</h1>
+	<p>家系図情報を更新しました</p>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>家系図ID</th>
+				<th>家系図タイトル</th>
+				<th>説明文</th>
+			</tr>
+		</thead>
+		<tbody>
+			<td th:text="${familyTree.familyTreeId}"></td>
+			<td th:text="${familyTree.title}"></td>
+			<td th:text="${familyTree.description}"></td>
+		</tbody>
+	</table>
+	<div class="buttom-section">
+
+		<p><a href="/family_trees/index">家系図一覧へ</a></p>
+		<p><a href="/">メニュー一覧へ</a></p>
+	</div>
+</body>
+
+</html>

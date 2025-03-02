@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout ::base(~{::title}, ~{::body})}">
+
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>ユーザー詳細</title>
+
+	<!--	<style>
+		body {
+			text-align: center;
+		}
+
+		table {
+			margin: 30px auto;
+		}
+
+		.button {
+			padding: 10px 30px;
+			margin: 10px 10px 40px;
+			border: 1px solid #333;
+		}
+
+		.edit {
+			background-color: beige;
+		}
+
+		.delete {
+			background-color: lightpink;
+		}
+
+		footer {
+			margin: 30px;
+		}
+	</style>-->
+</head>
+
+<body>
+	<h1>ユーザー詳細</h1>
+	<div class="content-section">
+
+
+		<table class="table table-striped list-table" border="1">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>ユーザー名</th>
+					<th>email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td th:text="${user.id}"></td>
+					<td th:text="${user.userName}"></td>
+					<td th:text="${user.email}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<a th:href="@{/users/{userId}/edit(userId=${user.id})}" class="button edit">編集</a>
+		<a th:href="@{/users/{userId}/delete(userId=${user.id})}" class="button delete">削除</a>
+		<div class="bottom-section">
+			<a href="/">メニュー一覧へ</a>
+		</div>
+	</div>
+
+</body>
+
+</html>

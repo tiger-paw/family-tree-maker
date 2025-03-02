@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout ::base(~{::title}, ~{::body})}">
+
+<head>
+	<title>ユーザー登録画面</title>
+</head>
+
+<body>
+	<h1>ユーザー登録</h1>
+	<form th:action="@{/register}" method="post">
+		<table class="table-form">
+			<tr>
+				<th>
+					<label class="form-label" for="userName">Username:</label>
+				</th>
+				<td>
+					<input type="text" id="userName" name="userName" required>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<label class="form-label" for="password">Password:</label>
+				</th>
+				<td>
+
+					<input type="password" id="password" name="password" required>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<label class="form-label" for="email">Email:</label>
+
+				</th>
+				<td>
+					<input type="email" id="email" name="email" required>
+				</td>
+			</tr>
+		</table>
+		<div class="form-button">
+			<input class="button submit-button" type="submit" value="Submit">
+		</div>
+	</form>
+</body>
+
+</html>

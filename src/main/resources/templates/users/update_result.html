@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout ::base(~{::title}, ~{::body})}">
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>ユーザー更新結果</title>
+
+	<!--	<style>
+		body {
+			text-align: center;
+		}
+
+		table {
+			margin: 30px auto;
+		}
+	</style>-->
+</head>
+
+<body>
+	<h1>ユーザー更新結果</h1>
+	<div class="content-section">
+
+		<p>ユーザー情報を更新しました</p>
+		<table class="table table-striped list-table" border="1">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>ユーザー名</th>
+					<th>email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<td th:text="${user.id}"></td>
+				<td th:text="${user.userName}"></td>
+				<td th:text="${user.email}"></td>
+			</tbody>
+		</table>
+		<div class="bottom-section">
+			<p><a href="/users/index">ユーザー一覧へ</a></p>
+			<p><a href="/">メニュー一覧へ</a></p>
+		</div>
+	</div>
+</body>
+
+</html>

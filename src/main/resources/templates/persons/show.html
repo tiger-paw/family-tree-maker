@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout ::base(~{::title}, ~{::body})}">
+
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>人物詳細</title>
+
+	<!--<style>
+		body {
+			text-align: center;
+		}
+
+		table {
+			margin: 30px auto;
+		}
+
+		.button {
+			padding: 10px 30px;
+			margin: 10px 10px 40px;
+			border: 1px solid #333;
+		}
+
+		.edit {
+			background-color: beige;
+		}
+
+		.delete {
+			background-color: lightpink;
+		}
+
+		footer {
+			margin: 30px;
+		}
+	</style>-->
+</head>
+
+<body>
+	<h1>人物詳細</h1>
+	<div class="content-section">
+	<table class="table table-striped list-table" border="1">
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td th:text="${person.personId}">
+			</tr>
+			<tr>
+				<td>名前</td>
+				<td th:text="${person.lastName} + '_' + ${person.firstName}"></td>
+			</tr>
+			<tr>
+				<td>関係</td>
+				<td th:each="rel : ${person.relationshipsAsPerson1}" th:text="${rel.relationshipType}"></td>
+			</tr>
+			<tr>
+				<td>性別</td>
+				<td th:text="${person.gender}"></td>
+			</tr>
+			<tr>
+				<td>画像</td>
+				<td th:text="${person.personImage}"></td>
+			</tr>
+			<tr>
+				<td>説明文</td>
+				<td th:text="${person.description}"></td>
+			</tr>
+			<tr>
+				<td>電話番号</td>
+				<td th:text="${person.phoneNumber}"></td>
+			</tr>
+			<tr>
+				<td>住所</td>
+				<td th:text="${person.address}"></td>
+			</tr>
+
+		</thead>
+	</table>
+	<a th:href="@{/family_trees/{familyTreeId}/persons/{personId}/edit(familyTreeId=${familyTreeId}, personId=${personId})}"
+		class="button edit">編集</a>
+	<a th:href="@{/family_trees/{familyTreeId}/persons/{personId}/delete_confirm_from_show(familyTreeId=${familyTreeId}, personId=${personId})}"
+		class="button delete">削除</a>
+	<br />
+	
+	<div class="buttom-section">
+
+		<a href="/">メニュー一覧へ</a>
+	</div>
+
+	</div>
+</body>
+
+</html>

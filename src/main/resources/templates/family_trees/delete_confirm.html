@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  th:replace="~{layout ::base(~{::title}, ~{::body})}">
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>家系図削除確認</title>
+
+	<style>
+		body {
+			text-align: center;
+		}
+
+		table {
+			margin: 30px auto;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>家系図削除</h1>
+	<p>家系図情報を削除しますか？</p>
+	
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>タイトル</th>
+				<th>説明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td th:text="${familyTree.id}"></td>
+				<td th:text="${familyTree.title}"></td>
+				<td th:text="${familyTree.description}"></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p>
+		<a href="/family_trees/index">キャンセル</a>
+	</p>
+	<p>
+		<a th:href="@{/family_trees/{familyTreeId}/delete(familyTreeId=${familyTree.familyTreeId})}">削除する</a>
+	</p>
+
+	<p><a href="/users/index">ユーザー一覧へ</a></p>
+	<p><a href="/">メニュー一覧へ</a></p>
+
+</body>
+
+</html>

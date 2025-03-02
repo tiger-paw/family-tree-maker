@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout ::base(~{::title}, ~{::body})}">
+
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>ユーザー一覧</title>
+
+	<!--	<style>
+		body {
+			text-align: center;
+		}
+		table {
+			margin: 30px auto;
+		}
+	</style>-->
+</head>
+
+<body>
+	<h1>ユーザー一覧</h1>
+	<div class="content-section">
+
+		<div th:if="${message}">
+			<p th:text="${message}"></p>
+		</div>
+		<table class="table table-striped list-table" border="1">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>ユーザー名</th>
+					<th>email</th>
+					<th>詳細</th>
+					<th>編集</th>
+					<th>削除</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user: ${userList}">
+					<td th:text="${user.id}"></td>
+					<td th:text="${user.userName}"></td>
+					<td th:text="${user.email}"></td>
+					<td><a th:href="@{/users/{userId}/show(userId=${user.id})}">詳細</a></td>
+					<td><a th:href="@{/users/{userId}/edit(userId=${user.id})}">編集</a></td>
+					<td><a th:href="@{/users/{userId}/delete(userId=${user.id})}">削除</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="bottom-seciton">
+		<a href="/">メニュー一覧へ</a>
+	</div>
+
+
+</body>
+
+</html>

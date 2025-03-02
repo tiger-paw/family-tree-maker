@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<title>人物追加</title>
+</head>
+
+<body>
+	<!-- Spring Securityからユーザー名を取得して表示-->
+	<!-- <p sec:authentication="name"></p> -->
+
+	<h2>人物の追加</h2>
+	<form th:action="@{/family_trees/{id}/persons/create(id=${familyTreeId})}" th:object="${personForm}" method="post">
+		<p>
+			<label for="relationshipPerson">関係者:</label>
+			<select name="person2Id" id="relationshipPerson">
+				<option value="">--関係する人物--</option>
+				<option th:each="person : ${personList}" th:value="${person.personId}"
+					th:text="${person.lastName} + '_' + ${person.firstName}"></option>
+			</select>
+		</p>
+
+		<p>
+			<label for="relationshipType">登録する人物に対する関係:</label>
+			<select name="relationshipType" id="relationshipType">
+				<option value="">--関係性--</option>
+				<option th:each="relationshipType : ${relationshipTypeList}" th:value="${relationshipType}"
+									th:text="${relationshipType}"></option>
+			</select>
+		</p>
+
+		<label for="lastName">姓:</label>
+		<input type="text" id="lastName" name="lastName" required><br>
+
+		<label for="lastNameKana">姓(かな):</label>
+		<input type="text" id="lastNameKana" name="lastNameKana" required><br>
+
+		<label for="firstName">名:</label>
+		<input type="text" id="firstName" name="firstName" required><br>
+
+		<label for="firstNameKana">名(かな):</label>
+		<input type="text" id="firstNameKana" name="firstNameKana" required><br>
+
+		<label for="birthDate">生年月日</label><br>
+		<input type="date" id="birthDate" name="birthDate"><br>
+
+		<div>
+			<p>
+				性別
+				<input type="radio" id="male" name="gender" value="MALE" checked />
+				<label for="MALE">男性</label>
+
+				<input type="radio" id="female" name="gender" value="FEMALE" />
+				<label for="FEMALE">女性</label>
+
+				<input type="radio" id="other" name="gender" value="OTHER" />
+				<label for="OTHER">その他</label>
+			</p>
+		</div>
+		<br>
+
+		<label for="personImage">画像</label>
+		<input type="file" id="personImage" name="personImage"><br>
+
+		<label for="description">説明文</label><br>
+		<textarea id="description" name="description" rows="3" cols="30"></textarea>
+		<br>
+
+		<label for="phoneNumber">電話番号</label>
+		<input type="text" id="phoneNumber" name="phoneNumber"><br>
+
+
+		<label for="address">住所</label>
+		<input type="text" id="address" name="address"><br>
+
+		<input type="submit" value="人物を追加する">
+	</form>
+</body>
+
+</html>

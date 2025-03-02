@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout ::base(~{::title}, ~{::body})}">
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>人物削除確認</title>
+
+	<style>
+		body {
+			text-align: center;
+		}
+
+		table {
+			margin: 30px auto;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>人物削除</h1>
+	<p>人物情報を削除しますか？</p>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>名前</th>
+				<th>関係性</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td th:text="${person.personId}"></td>
+				<td th:text="${person.lastName} + '_' + ${person.firstName}"></td>
+				<td th:each="rel : ${person.relationshipsAsPerson1}" th:text="${rel.relationshipType}"></td>
+			</tr>
+		<tbody>
+
+
+		</tbody>
+	</table>
+
+
+	<p>
+		<a th:href="@{/family_trees/{familyTreeId}/persons/{personId}(familyTreeId=${familyTreeId}, personId=${person.personId})}">キャンセル</a>
+	</p>
+	<p>
+		<a th:href="@{/family_trees/{familyTreeId}/persons/{personId}/delete(familyTreeId=${familyTreeId}, personId=${person.personId})}">削除する</a>
+	</p>
+
+	<p><a href="/users/index">ユーザー一覧へ</a></p>
+	<p><a href="/">メニュー一覧へ</a></p>
+
+</body>
+
+</html>
